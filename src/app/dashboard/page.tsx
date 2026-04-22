@@ -36,7 +36,7 @@ export default function DashboardPage() {
   // 첫 방문 시 사용법 자동 팝업 (사용자별로 1회)
   useEffect(() => {
     if (!user) return;
-    const seenKey = `help_seen_${user}`;
+    const seenKey = `help_seen_v2_${user}`;
     const seen = localStorage.getItem(seenKey);
     if (!seen) {
       setShowHelp(true);
