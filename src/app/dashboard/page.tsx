@@ -120,16 +120,18 @@ export default function DashboardPage() {
     <div className={styles.page}>
       <header className={styles.header}>
         <div className={styles.headerLeft}>
+          <div className={styles.userActions}>
+            <div className={styles.userChip}>
+              <div className={styles.userLabel}>로그인</div>
+              <div className={styles.userName}>{user}</div>
+            </div>
+            <button onClick={logout} className={styles.logoutBtn}>로그아웃</button>
+          </div>
           <div className={styles.eyebrow}>TF DASHBOARD · LIVE</div>
           <h1 className={styles.title}>2026 스승의 날 기념 행사</h1>
           <p className={styles.subtitle}>각 일정에 마일스톤을 등록하고 체크하세요</p>
         </div>
         <div className={styles.headerRight}>
-          <div className={styles.userChip}>
-            <div className={styles.userLabel}>로그인</div>
-            <div className={styles.userName}>{user}</div>
-          </div>
-          <button onClick={logout} className={styles.logoutBtn}>로그아웃</button>
           <button onClick={() => setShowHelp(true)} className={styles.helpBtn} aria-label="사용법">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.5"/>
