@@ -427,6 +427,11 @@
   .title { font-size: 22px; }
   .header { margin-bottom: 24px; }
 
+  .headerRight {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
   .navBtn {
     position: absolute;
     top: 50%;
