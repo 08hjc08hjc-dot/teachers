@@ -328,6 +328,19 @@
   color: var(--red);
 }
 
+@media (max-width: 768px) {
+  .delete {
+    opacity: 1;
+    width: 28px;
+    height: 28px;
+    background: var(--bg);
+  }
+  .delete:active {
+    background: var(--red-soft);
+    color: var(--red);
+  }
+}
+
 .addBtn {
   display: flex;
   align-items: center;

@@ -7,6 +7,7 @@ import { PHASES, Milestone } from "@/types";
 import { subscribeMilestones } from "@/lib/data";
 import { PhaseCard } from "@/components/PhaseCard";
 import { MilestoneDetail } from "@/components/MilestoneDetail";
+import { Countdown } from "@/components/Countdown";
 import styles from "./dashboard.module.css";
 
 export default function DashboardPage() {
@@ -118,6 +119,8 @@ export default function DashboardPage() {
           <button onClick={logout} className={styles.logoutBtn}>로그아웃</button>
         </div>
       </header>
+
+      <Countdown />
 
       <div className={styles.statsRow}>
         <div className={styles.stat}>
