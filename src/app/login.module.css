@@ -1,0 +1,150 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--line);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue);
+  background: var(--blue-soft);
+  padding: 5px 10px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--blue);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: var(--sub);
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input {
+  width: 100%;
+  padding: 16px 18px;
+  background: var(--bg);
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.input:focus {
+  background: var(--surface);
+  border-color: var(--blue);
+}
+
+.input::placeholder {
+  color: var(--sub-2);
+}
+
+.error {
+  font-size: 13px;
+  color: var(--red);
+  font-weight: 500;
+  padding: 0 4px;
+}
+
+.button {
+  width: 100%;
+  padding: 16px;
+  background: var(--blue);
+  color: white;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--blue-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(49, 130, 246, 0.25);
+}
+
+.button:disabled {
+  background: var(--line);
+  color: var(--sub-2);
+  cursor: not-allowed;
+}
+
+.hint {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.hintLabel {
+  font-size: 12px;
+  color: var(--sub);
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+
+.hintList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hintChip {
+  padding: 8px 14px;
+  background: var(--bg);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+  transition: all 0.15s ease;
+}
+
+.hintChip:hover {
+  background: var(--blue-soft);
+  color: var(--blue-deep);
+}

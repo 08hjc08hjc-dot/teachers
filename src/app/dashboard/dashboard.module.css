@@ -1,0 +1,458 @@
+.page {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.headerLeft { flex: 1; min-width: 280px; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue);
+  background: var(--blue-soft);
+  padding: 5px 11px;
+  border-radius: 100px;
+  margin-bottom: 14px;
+  letter-spacing: 0.03em;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--blue);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: var(--sub);
+  font-weight: 500;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userChip {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 16px;
+}
+
+.userLabel {
+  font-size: 11px;
+  color: var(--sub);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.userName {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.logoutBtn {
+  padding: 10px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sub);
+  transition: all 0.15s ease;
+}
+
+.logoutBtn:hover {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px 20px;
+  transition: all 0.2s ease;
+}
+
+.stat:hover {
+  border-color: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.statLabel {
+  font-size: 12px;
+  color: var(--sub);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.statValue {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.statValue.accent { color: var(--red); }
+
+.statSmall {
+  font-size: 13px;
+  color: var(--sub);
+  font-weight: 500;
+  margin-left: 2px;
+}
+
+.progressSection {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 22px 26px;
+  margin-bottom: 24px;
+  border: 1px solid var(--line);
+}
+
+.progressTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.progressTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.progressPct {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: -0.02em;
+}
+
+.progressBar {
+  height: 10px;
+  background: var(--line-soft);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue) 0%, var(--blue-deep) 100%);
+  border-radius: 100px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progressHint {
+  font-size: 12px;
+  color: var(--sub-2);
+  font-weight: 500;
+  margin-top: 10px;
+  text-align: right;
+}
+
+/* ─── 페이지네이션 도트 ─── */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 56px;
+  height: 36px;
+  padding: 0 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  transition: all 0.2s ease;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--sub);
+  letter-spacing: -0.02em;
+}
+
+.dot:hover {
+  border-color: var(--blue);
+  color: var(--blue-deep);
+  transform: translateY(-1px);
+}
+
+.dotActive {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+  box-shadow: 0 4px 12px rgba(49, 130, 246, 0.25);
+}
+
+.dotActive:hover {
+  background: var(--blue-deep);
+  border-color: var(--blue-deep);
+  color: white;
+}
+
+.dot_kickoff.dotActive {
+  background: var(--green);
+  border-color: var(--green);
+  box-shadow: 0 4px 12px rgba(0, 196, 113, 0.25);
+}
+.dot_kickoff.dotActive:hover {
+  background: #00A85E;
+  border-color: #00A85E;
+}
+
+.dot_review.dotActive {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: #6B4500;
+  box-shadow: 0 4px 12px rgba(255, 176, 32, 0.25);
+}
+.dot_review.dotActive:hover {
+  background: #F0A012;
+  border-color: #F0A012;
+}
+
+.dot_dday.dotActive {
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 4px 12px rgba(240, 68, 82, 0.25);
+}
+.dot_dday.dotActive:hover {
+  background: #D93B47;
+  border-color: #D93B47;
+}
+
+.dotLabel {
+  white-space: nowrap;
+}
+
+/* ─── 타임라인 섹션 (좌우 버튼 포함) ─── */
+.timelineSection {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navBtn {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  z-index: 5;
+}
+
+.navBtn:hover:not(:disabled) {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 16px rgba(49, 130, 246, 0.25);
+}
+
+.navBtn:disabled {
+  background: var(--bg);
+  color: var(--sub-2);
+  cursor: not-allowed;
+  opacity: 0.5;
+  box-shadow: none;
+}
+
+.timelineWrapper {
+  flex: 1;
+  min-width: 0;
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 32px 24px;
+  border: 1px solid var(--line);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.timelineWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.timeline {
+  display: flex;
+  gap: 16px;
+  min-width: max-content;
+  padding: 12px 0;
+  position: relative;
+}
+
+.phaseSlot {
+  display: flex;
+  justify-content: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.55;
+  filter: grayscale(0.3);
+}
+
+.phaseSlot.phaseSlotActive {
+  opacity: 1;
+  filter: none;
+}
+
+/* ─── 모바일 인디케이터 ─── */
+.mobileIndicator {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--sub);
+  font-weight: 600;
+}
+
+.mobileCurrent {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.mobileSep {
+  color: var(--sub-2);
+}
+
+.mobileCount {
+  font-size: 12px;
+  background: var(--bg);
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-weight: 700;
+  color: var(--ink-2);
+}
+
+/* ─── 모바일 ─── */
+@media (max-width: 768px) {
+  .page { padding: 24px 16px 56px; }
+  .title { font-size: 22px; }
+  .header { margin-bottom: 24px; }
+
+  .navBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+  }
+
+  .navBtn:hover:not(:disabled) {
+    transform: translateY(-50%) scale(1.05);
+  }
+
+  .navPrev {
+    left: 4px;
+  }
+
+  .navNext {
+    right: 4px;
+  }
+
+  .timelineSection {
+    gap: 0;
+  }
+
+  .timelineWrapper {
+    padding: 24px 4px;
+    border-radius: 20px;
+  }
+
+  .timeline {
+    gap: 0;
+  }
+
+  .phaseSlot {
+    width: calc(100vw - 32px);
+    min-width: calc(100vw - 32px);
+    padding: 0 16px;
+  }
+
+  .phaseSlot.phaseSlotActive {
+    opacity: 1;
+  }
+
+  .phaseSlot:not(.phaseSlotActive) {
+    opacity: 0.3;
+    transform: scale(0.94);
+  }
+
+  .mobileIndicator {
+    display: flex;
+  }
+
+  .dots {
+    margin-bottom: 12px;
+    gap: 4px;
+  }
+
+  .dot {
+    min-width: 44px;
+    height: 30px;
+    padding: 0 10px;
+    font-size: 11px;
+  }
+
+  .progressHint {
+    font-size: 11px;
+  }
+}

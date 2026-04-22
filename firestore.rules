@@ -1,0 +1,20 @@
+// Firestore 보안 규칙 - Firebase 콘솔 > Firestore Database > 규칙에 붙여넣기
+// (이 프로젝트는 이름 기반 간이 로그인이라 Firebase Auth를 쓰지 않으므로,
+//  4명만 쓰는 내부 도구용으로 열어두는 규칙입니다.
+//  외부 공개용이라면 Firebase Auth를 추가로 연동하세요.)
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 마일스톤 - 읽기/쓰기 허용
+    match /milestones/{milestoneId} {
+      allow read, write: if true;
+
+      // 하위 코멘트 컬렉션
+      match /comments/{commentId} {
+        allow read, write: if true;
+      }
+    }
+  }
+}
