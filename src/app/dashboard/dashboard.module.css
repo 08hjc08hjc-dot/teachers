@@ -126,15 +126,6 @@
     padding: 8px 12px;
     font-size: 12px;
   }
-  .helpBtn span {
-    display: none;
-  }
-  .helpBtn {
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    justify-content: center;
-  }
 }
 
 .statsRow {

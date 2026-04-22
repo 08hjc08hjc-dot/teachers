@@ -125,6 +125,11 @@ export default function DashboardPage() {
           <p className={styles.subtitle}>각 일정에 마일스톤을 등록하고 체크하세요</p>
         </div>
         <div className={styles.headerRight}>
+          <div className={styles.userChip}>
+            <div className={styles.userLabel}>로그인</div>
+            <div className={styles.userName}>{user}</div>
+          </div>
+          <button onClick={logout} className={styles.logoutBtn}>로그아웃</button>
           <button onClick={() => setShowHelp(true)} className={styles.helpBtn} aria-label="사용법">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.5"/>
@@ -133,11 +138,6 @@ export default function DashboardPage() {
             </svg>
             <span>사용법</span>
           </button>
-          <div className={styles.userChip}>
-            <div className={styles.userLabel}>로그인</div>
-            <div className={styles.userName}>{user}</div>
-          </div>
-          <button onClick={logout} className={styles.logoutBtn}>로그아웃</button>
         </div>
       </header>
 
