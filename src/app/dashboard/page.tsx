@@ -8,6 +8,7 @@ import { subscribeMilestones } from "@/lib/data";
 import { PhaseCard } from "@/components/PhaseCard";
 import { MilestoneDetail } from "@/components/MilestoneDetail";
 import { Countdown } from "@/components/Countdown";
+import { HelpGuide } from "@/components/HelpGuide";
 import styles from "./dashboard.module.css";
 
 export default function DashboardPage() {
@@ -17,6 +18,7 @@ export default function DashboardPage() {
   const [selectedMilestoneId, setSelectedMilestoneId] = useState<string | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [showHelp, setShowHelp] = useState(false);
   const timelineRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
@@ -29,6 +31,17 @@ export default function DashboardPage() {
     if (!user) return;
     const unsub = subscribeMilestones(setMilestones);
     return () => unsub();
+  }, [user]);
+
+  // 첫 방문 시 사용법 자동 팝업 (사용자별로 1회)
+  useEffect(() => {
+    if (!user) return;
+    const seenKey = `help_seen_${user}`;
+    const seen = localStorage.getItem(seenKey);
+    if (!seen) {
+      setShowHelp(true);
+      localStorage.setItem(seenKey, "1");
+    }
   }, [user]);
 
   // 화면 크기 감지
@@ -112,6 +125,14 @@ export default function DashboardPage() {
           <p className={styles.subtitle}>각 일정에 마일스톤을 등록하고 체크하세요</p>
         </div>
         <div className={styles.headerRight}>
+          <button onClick={() => setShowHelp(true)} className={styles.helpBtn} aria-label="사용법">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M5.5 5.3C5.5 4.5 6.1 4 7 4C7.9 4 8.5 4.6 8.5 5.4C8.5 6.2 7.5 6.5 7 7.2V7.8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              <circle cx="7" cy="9.8" r="0.7" fill="currentColor"/>
+            </svg>
+            <span>사용법</span>
+          </button>
           <div className={styles.userChip}>
             <div className={styles.userLabel}>로그인</div>
             <div className={styles.userName}>{user}</div>
@@ -238,6 +259,8 @@ export default function DashboardPage() {
           onClose={() => setSelectedMilestoneId(null)}
         />
       )}
+
+      {showHelp && <HelpGuide onClose={() => setShowHelp(false)} />}
     </div>
   );
 }

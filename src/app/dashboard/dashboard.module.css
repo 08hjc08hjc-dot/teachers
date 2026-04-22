@@ -96,6 +96,47 @@
   color: var(--ink);
 }
 
+.helpBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: var(--blue-soft);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue-deep);
+  transition: all 0.15s ease;
+}
+
+.helpBtn:hover {
+  background: var(--blue);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(49, 130, 246, 0.25);
+}
+
+.helpBtn svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .helpBtn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  .helpBtn span {
+    display: none;
+  }
+  .helpBtn {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    justify-content: center;
+  }
+}
+
 .statsRow {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
