@@ -16,5 +16,10 @@ service cloud.firestore {
         allow read, write: if true;
       }
     }
+
+    // 접속 상태 추적 - 읽기/쓰기 허용
+    match /presence/{userId} {
+      allow read, write: if true;
+    }
   }
 }

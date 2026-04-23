@@ -9,6 +9,7 @@ import { PhaseCard } from "@/components/PhaseCard";
 import { MilestoneDetail } from "@/components/MilestoneDetail";
 import { Countdown } from "@/components/Countdown";
 import { HelpGuide } from "@/components/HelpGuide";
+import { OnlineBar } from "@/components/OnlineBar";
 import styles from "./dashboard.module.css";
 
 export default function DashboardPage() {
@@ -142,6 +143,8 @@ export default function DashboardPage() {
           </button>
         </div>
       </header>
+
+      <OnlineBar />
 
       <Countdown />
 
